@@ -14,6 +14,12 @@ view: inventory_items {
     sql: ${TABLE}."COST" ;;
   }
 
+  dimension: cost_minus_tax {
+    type: number
+    sql: ${cost}*0.75;;
+    value_format_name: eur_0
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
@@ -36,6 +42,11 @@ view: inventory_items {
   dimension: product_category {
     type: string
     sql: ${TABLE}."PRODUCT_CATEGORY" ;;
+  }
+
+  dimension: product_brand_and_category {
+    type:  string
+    sql: ${product_brand} || ' ' || ${product_category} ;;
   }
 
   dimension: product_department {
@@ -82,6 +93,14 @@ view: inventory_items {
     ]
     sql: ${TABLE}."SOLD_AT" ;;
   }
+
+  dimension_group: date_diff_created_sold {
+    type:  duration
+    intervals: [day]
+    sql_start: ${created_raw} ;;
+    sql_end: ${sold_raw} ;;
+  }
+
 
   measure: count {
     type: count
