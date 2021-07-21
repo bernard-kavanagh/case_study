@@ -15,8 +15,9 @@ view: inventory_items {
   }
 
   dimension: high_cost {
+    description: "Yes means unusally high inventoy cost, > 400"
     type:  yesno
-    sql:  ${cost}>500 ;;
+    sql:  ${cost}>400 ;;
   }
 
   dimension: cost_minus_tax {
