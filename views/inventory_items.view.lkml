@@ -14,6 +14,11 @@ view: inventory_items {
     sql: ${TABLE}."COST" ;;
   }
 
+  dimension: high_cost {
+    type:  yesno
+    sql:  ${cost}=>500 ;;
+  }
+
   dimension: cost_minus_tax {
     type: number
     sql: ${cost}*0.75;;
@@ -100,7 +105,6 @@ view: inventory_items {
     sql_start: ${created_raw} ;;
     sql_end: ${sold_raw} ;;
   }
-
 
   measure: count {
     type: count
