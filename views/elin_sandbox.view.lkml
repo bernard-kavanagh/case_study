@@ -71,6 +71,7 @@ view: lrwe9_ss1621980673177_users_new {
 
   dimension: state {
     type: string
+    map_layer_name: us_states
     sql: ${TABLE}."STATE" ;;
   }
 
