@@ -3,6 +3,12 @@ view: inventory_items {
     ;;
   drill_fields: [id]
 
+  set: inventory_detail {
+    fields: [id, product_name, products.id, products.name, order_items.count]
+  }
+
+
+
   dimension: id {
     primary_key: yes
     type: number
@@ -123,7 +129,7 @@ view: inventory_items {
 
   measure: count_distinct_prod{
     type: count_distinct
-    drill_fields: [id, count, product_name]
+    drill_fields: [inventory_detail*]
     sql:  ${product_name} ;;
   }
 
