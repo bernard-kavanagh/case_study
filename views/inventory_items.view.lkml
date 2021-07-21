@@ -16,7 +16,7 @@ view: inventory_items {
 
   dimension: high_cost {
     type:  yesno
-    sql:  ${cost}=>500 ;;
+    sql:  ${cost}>500 ;;
   }
 
   dimension: cost_minus_tax {
