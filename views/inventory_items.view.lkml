@@ -76,6 +76,11 @@ view: inventory_items {
     sql: ${TABLE}."PRODUCT_NAME" ;;
   }
 
+  measure: count_distinct_prod{
+    type: count_distinct
+    sql:  ${product_name} ;;
+  }
+
   dimension: product_retail_price {
     type: number
     sql: ${TABLE}."PRODUCT_RETAIL_PRICE" ;;
