@@ -19,6 +19,12 @@ view: distribution_centers {
     sql: ${TABLE}."LONGITUDE" ;;
   }
 
+  dimension: country {
+    type:  string
+    map_layer_name: countries
+    sql:  ${TABLE}.country ;;
+  }
+
   dimension: name {
     type: string
     sql: ${TABLE}."NAME" ;;
